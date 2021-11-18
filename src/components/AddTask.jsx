@@ -6,6 +6,7 @@ import { addTask } from "../JS/Actions/actions";
 function AddTask() {
 
   const dispatch = useDispatch();
+  const [error,setError] = useState(false);
 
   const [inputText, setInputText] = useState("");
 
@@ -15,15 +16,19 @@ function AddTask() {
   }
 
   function addItem() {
-    // setItems((prevItems) => {
-    //   return [...prevItems, inputText];
-    // });
+    
+    if (inputText.trim() === "") {
+      setError(true);
+    }else{
     dispatch(addTask(inputText));
     setInputText("");
+    setError(false);
+  }
   }
 
   return (
     <div className="form">
+      {error && <p style={{color : "red",fontSize : "80%"}}>Error : Please Fill The Input</p>}
       <input
         onChange={handleChange}
         type="text"

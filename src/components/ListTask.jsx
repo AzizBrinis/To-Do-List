@@ -13,13 +13,7 @@ const ListTask = () => {
     function changeUpdate() {
       setUpdate(!update);
     }
-    // function deleteItem(id) {
-    //     setItems((prevItems) => {
-    //       return prevItems.filter((item, index) => {
-    //         return index !== id;
-    //       });
-    //     });
-    //   }
+  
 
     function handleDoneList(e) {
       console.log(e.target.checked);
@@ -46,7 +40,7 @@ const ListTask = () => {
               id={todoItem.id}
               text={todoItem.description}
               changeUpdate={changeUpdate}
-            //   onChecked={deleteItem}
+           
             />
           ))}
           {filteredList && items.filter(item => item.isDone === true).map((todoItem) => (
@@ -55,7 +49,7 @@ const ListTask = () => {
               id={todoItem.id}
               text={todoItem.description}
               changeUpdate={changeUpdate}
-            //   onChecked={deleteItem}
+      
             />
           ))}
           {undoneList && items.filter(item => item.isDone === false).map((todoItem) => (
@@ -64,7 +58,7 @@ const ListTask = () => {
               id={todoItem.id}
               text={todoItem.description}
               changeUpdate={changeUpdate}
-            //   onChecked={deleteItem}
+      
             />
           ))}
 
